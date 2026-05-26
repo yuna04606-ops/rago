@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퍼포먼스 마케터 포트폴리오</title>
+    <!-- 구글 폰트 추가 (Noto Sans KR) -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS 코드를 HTML 내부에 통합 -->
+    <style>
+        /* 기본 스타일 초기화 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: #0f172a; /* 깊이감 있는 다크 블루 */
+            color: #e2e8f0;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .highlight {
+            color: #38bdf8; /* 데이터/신뢰를 상징하는 스카이 블루 포인트 */
+        }
+
+        /* 헤더 스타일 */
+        header {
+            background-color: rgba(15, 23, 42, 0.9);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            border-bottom: 1px solid #1e293b;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #38bdf8;
+        }
+
+        /* 히어로 섹션 */
+        .hero-section {
+            padding: 200px 0 150px 0;
+            background: radial-gradient(circle at top right, #1e3a8a 0%, #0f172a 60%);
+            text-align: center;
+        }
+
+        .sub-tag {
+            font-size: 0.9rem;
+            color: #38bdf8;
+            font-weight: 700;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 25px;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto 40px auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #38bdf8;
+            color: #0f172a;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: transform 0.3s, background-color 0.3s;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            background-color: #7dd3fc;
+        }
+
+        /* 공통 섹션 스타일 */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            border-left: 4px solid #38bdf8;
+            padding-left: 15px;
+        }
+
+        /* 소개 섹션 */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+        }
+
+        .about-text h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #f8fafc;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            color: #94a3b8;
+        }
+
+        .about-info {
+            background-color: #1e293b;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #334155;
+            font-size: 0.95rem;
+        }
+
+        .info-item:last-child {
+            border-bottom: none;
+        }
+
+        .info-item strong {
+            color: #94a3b8;
+        }
+
+        /* 역량 섹션 */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background-color: #1e293b;
+            padding: 40px 30px;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            transition: transform 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+        }
+
+        .skill-card p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .skill-desc {
+            display: block;
+            font-size: 0.85rem;
+            color: #38bdf8;
+        }
+
+        /* 프로젝트 섹션 */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .project-card {
+            background-color: #1e293b;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid #334155;
+        }
+
+        .project-img {
+            background-color: #334155;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #94a3b8;
+            font-weight: bold;
+        }
+
+        .project-content {
+            padding: 30px;
+        }
+
+        .project-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            color: #38bdf8;
+            background-color: rgba(56, 189, 248, 0.1);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .project-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .project-content p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* 푸터 */
+        footer {
+            background-color: #090d16;
+            padding: 40px 0;
+            font-size: 0.9rem;
+            color: #64748b;
+            border-top: 1px solid #1e293b;
+        }
+
+        /* 반응형 모바일 대응 */
+        @media (max-width: 768px) {
+            .hero-section h1 { font-size: 2.2rem; }
+            .about-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 헤더 / 내비게이션 -->
+    <header>
+        <div class="container header-flex">
+            <div class="logo">PORTFOLIO.</div>
+            <nav>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 히어로 섹션 (메인 카피 적용) -->
+    <section id="home" class="hero-section">
+        <div class="container text-center">
+            <p class="sub-tag">PERFORMANCE MARKETER</p>
+            <h1>픽셀로 마음을 움직이고<br><span class="highlight">데이터로 성과를 증명합니다.</span></h1>
+            <p class="hero-sub">시선을 끄는 크리에이티브, 성과를 내는 데이터. 준비된 퍼포먼스 마케터입니다.</p>
+            <a href="#projects" class="btn">프로젝트 보기</a>
+        </div>
+    </section>
+
+    <!-- 소개 섹션 -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <h3>비주얼과 숫자의 밸런스를 갖춘 인재</h3>
+                    <p>디자이너의 도움 없이도 어도비 프로그램을 활용해 타겟의 시선을 사로잡는 이미지와 영상 광고 소재를 직접, 빠르게 제작할 수 있는 실행력을 가졌습니다.</p>
+                    <p>또한, 검색 최적화(SEO)의 기본 원리를 이해하여 유입 구조를 설계하고, 구글 애널리틱스(GA)를 활용해 유저 행동 데이터를 분석함으로써 끊임없이 마케팅 효율을 개선해 나갑니다.</p>
+                </div>
+                <div class="about-info">
+                    <div class="info-item"><strong>이름</strong> <span>본인 이름</span></div>
+                    <div class="info-item"><strong>학력</strong> <span>OO대학교 (졸업/예정)</span></div>
+                    <div class="info-item"><strong>이메일</strong> <span>your-email@email.com</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 핵심 역량 섹션 -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title">Core Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Creative & Design</h3>
+                    <p>Adobe Photoshop, Premiere Pro, 웹디자인 기초</p>
+                    <span class="skill-desc">광고 배너 및 숏폼 영상 소재 자체 제작 가능</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">📊</div>
+                    <h3>Data Analysis</h3>
+                    <p>Google Analytics (GA4), Excel 데이터 분석</p>
+                    <span class="skill-desc">유저 행동 로그 분석 및 핵심 마케팅 지표 추적</span>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔍</div>
+                    <h3>SEO Optimization</h3>
+                    <p>검색 엔진 최적화 기초</p>
+                    <span class="skill-desc">검색 노출을 고려한 콘텐츠 및 웹 구조 설계 이해</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 프로젝트 섹션 (프레임) -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <!-- 프로젝트 1 -->
+                <div class="project-card">
+                    <div class="project-img">프로젝트 1 이미지 이미지 영역</div>
+                    <div class="project-content">
+                        <span class="project-tag">Creative + GA 분석</span>
+                        <h3>[예시] 어도비 소재 제작 및 GA 효율 분석 캠페인</h3>
+                        <p>직접 제작한 영상/이미지 광고 배너를 집행하고, 구글 애널리틱스를 통해 이탈률과 전환율을 모니터링하여 성과를 개선한 프로젝트 내용을 적어주세요.</p>
+                    </div>
+                </div>
+                <!-- 프로젝트 2 -->
+                <div class="project-card">
+                    <div class="project-img">프로젝트 2 이미지 영역</div>
+                    <div class="project-content">
+                        <span class="project-tag">SEO + 웹디자인</span>
+                        <h3>[예시] SEO 가이드라인을 반영한 랜딩페이지 기획</h3>
+                        <p>웹디자인 기초 지식과 검색엔진 최적화 요소를 결합하여, 유저가 검색을 통해 자연스럽게 유입되도록 구조를 설계한 프로젝트 내용을 적어주세요.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <div class="container text-center">
+            <p>&copy; 2026 Ready-to-Run Performance Marketer. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
